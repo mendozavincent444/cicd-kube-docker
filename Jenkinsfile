@@ -4,7 +4,7 @@ pipeline {
     agent any
 
 	tools {
-        maven "MAVEN3.0"
+        maven "MAVEN3.9.9"
     }
 
     environment {
