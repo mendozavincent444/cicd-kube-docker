@@ -52,6 +52,8 @@ pipeline {
                 echo "Pushing image: ${registry}:${BUILD_NUMBER}"
               
               docker.withRegistry( '', registryCredential ) {
+
+                echo "Login successful. Ready to push images."
                 dockerImage.push(":$BUILD_NUMBER")
                 dockerImage.push('latest')
               }
