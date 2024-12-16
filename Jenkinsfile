@@ -1,4 +1,3 @@
-
 pipeline {
 
     agent any
@@ -26,7 +25,6 @@ pipeline {
             }
         }
 
-
         stage ('CODE ANALYSIS WITH CHECKSTYLE'){
             steps {
                 sh 'mvn checkstyle:checkstyle'
@@ -51,7 +49,7 @@ pipeline {
           steps{
             script {
               docker.withRegistry( '', registryCredential ) {
-                dockerImage.push("$BUILD_NUMBER")
+                dockerImage.push(registry + ":$BUILD_NUMBER")
                 dockerImage.push('latest')
               }
             }
