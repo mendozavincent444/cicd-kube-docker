@@ -48,7 +48,7 @@ pipeline {
         stage('Deploy Image') {
           steps{
             script {
-              docker.withRegistry( '', 'otan' ) {
+              docker.withRegistry( '', registryCredential) {
                 dockerImage.push(registry + ":$BUILD_NUMBER")
                 dockerImage.push('latest')
               }
